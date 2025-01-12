@@ -28,8 +28,81 @@ To use this progam as a user, just double click on the executable and follow the
 
 ### As a programmer
 
-If you wish to read or modify the source code of this program here are some information you might need:
+Here is an example on how to use my work:
+```cpp
+// Include this file in order to use the different classes and functions
+#include "assignment.h" 
 
-- To call the different functions, you only have to call the file "assignment.h" to your .cpp file.
-- Due to the way I have made this program, the differents features are not made to work with other data structure and do not support new element. If you wish to modify the current data structure, most of the code would need to be reworked.
+int main()
+{
+    StudentList students({Student(1, 26, "test1", "testName"),
+                          Student(4, 33, "test2", "testName2"),
+                          Student(3, 22, "Aurelien", "Fernandez")});
 
+    string input;
+    while (1)
+    {
+        system("cls"); // Clear console
+        printChoices(
+            "Choose an option:", {"(1):Print all students",
+                                  "(2):Print a specific student",
+                                  "(3):Add a student",
+                                  "(4):Update a student",
+                                  "(5):Remove a student",
+                                  "(6):Sort database",
+                                  "(0):Quit"});
+        cin >> input;  // Get user input
+        system("cls"); // Clear console
+        if (input == "0")
+        {
+            return 0;
+        }
+        else if (input == "1")
+        {
+            students.printAllStudents();
+        }
+        else if (input == "2")
+        {
+            students.printStudent();
+        }
+        else if (input == "3")
+        {
+            students.addStudent();
+        }
+        else if (input == "4")
+        {
+            students.updateStudent();
+        }
+        else if (input == "5")
+        {
+            students.deleteStudent();
+        }
+        else if (input == "6")
+        {
+
+            students.Sort();
+        }
+        else
+        {
+            cout << "Unkown input\n";
+            system("pause");
+        }
+    }
+}
+```
+If you do not have g++ in your device, download [mingw](https://www.mingw-w64.org/downloads/).
+
+Once you have cloned the repo, written your code and installed migw, 
+run this command in your terminal:
+``` 
+g++ ./[your file name].cpp  -o  [your file name].exe
+```
+
+
+> ⚠️ **Attention**:  Due to the way I wrote this program, the differents features are not made to work with other data structure and do not support new element. If you wish to modify the current data structure, most of the code would need to be reworked.
+
+## Limitations
+
+The main limitation is the architecture of my class and functions, I did not plan this assignement with polymorphism in mind.
+
+Another limitation is the lack of elements in the student class. I aimed for the creation of the different features, thus I did not see any reason to include more variable for the student class.
