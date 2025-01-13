@@ -28,10 +28,34 @@ To use this progam as a user, just double click on the executable and follow the
 
 ### As a programmer
 
+#### Structure
+
+To simplify the use of this assignment I centralized every includes into a single file named [assignment.hpp](https://github.com/aurelienfernandez/cpp-class/blob/main/src/assignment.h).
+
+Here is a representation of the current structure of the assignment:
+
+```
+src
+├── StrudentList
+|   ├── add.cpp
+|   ├── delete.cpp
+|   ├── print.cpp
+|   ├── sort.cpp
+|   ├── studentList.cpp
+|   └── studentList.hpp
+├── assignment.hpp
+├── isNumber.hpp
+├── isNumber.cpp
+├── printChoices.hpp
+├── printChoices.cpp
+└── main.cpp
+```
+
+#### Example
 Here is an example on how to use my work:
-```cpp
+```c++
 // Include this file in order to use the different classes and functions
-#include "assignment.h" 
+#include "assignment.hpp" 
 
 int main()
 {
@@ -53,31 +77,32 @@ int main()
                                   "(0):Quit"});
         cin >> input;  // Get user input
         system("cls"); // Clear console
-        if (input == "0")
+
+        if (input == "0") // Quit
         {
             return 0;
         }
-        else if (input == "1")
+        else if (input == "1") // Prints all students
         {
             students.printAllStudents();
         }
-        else if (input == "2")
+        else if (input == "2") // Prints a single student
         {
             students.printStudent();
         }
-        else if (input == "3")
+        else if (input == "3") // Adds a student
         {
-            students.addStudent();
+            students.addStudent(); 
         }
-        else if (input == "4")
+        else if (input == "4") // Updates a student
         {
             students.updateStudent();
         }
-        else if (input == "5")
+        else if (input == "5") // Deletes a student
         {
             students.deleteStudent();
         }
-        else if (input == "6")
+        else if (input == "6") // Sorts the list
         {
 
             students.Sort();
@@ -97,6 +122,7 @@ run this command in your terminal:
 ``` 
 g++ ./[your file name].cpp  -o  [your file name].exe
 ```
+
 
 
 > ⚠️ **Attention**:  Due to the way I wrote this program, the differents features are not made to work with other data structure and do not support new element. If you wish to modify the current data structure, most of the code would need to be reworked.

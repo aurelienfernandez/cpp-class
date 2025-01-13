@@ -1,8 +1,9 @@
-#include "assignment.h"
+#include "assignment.hpp"
+
 int main()
 {
     StudentList students({Student(1, 26, "test1", "testName"),
-                          Student(4, 33, "test2", "testName2"),
+                          Student(2, 33, "test2", "secondtestName"),
                           Student(3, 22, "Aurelien", "Fernandez")});
 
     string input;
@@ -17,8 +18,8 @@ int main()
                                   "(5):Remove a student",
                                   "(6):Sort database",
                                   "(0):Quit"});
-        cin >> input;  // Get user input
-        system("cls"); // Clear console
+        getline(cin, input); // Get user inputs
+        system("cls");       // Clear console
 
         /*
 =================================================================================
